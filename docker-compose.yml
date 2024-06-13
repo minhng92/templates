@@ -16,13 +16,7 @@ services:
     # depends_on:
     #   - service_a
     #   - service_b
-    # -------------
-    # | Execution |
-    # -------------
-    working_dir: /etc/nginx/    # x
-    entrypoint: /bin/bash
-    command: -c 'sleep 5 && sleep infinity'    # x
-    restart: unless-stopped     # or "always", "no" (default)
+    
     # -----------
     # | Volumes |
     # -----------
@@ -33,6 +27,15 @@ services:
       - ./html:/usr/share/nginx/html:ro         # x
     # devices:
     #   - "/dev/ttyUSB0:/dev/ttyUSB0"   # USB webcam
+    
+    # -------------
+    # | Execution |
+    # -------------
+    working_dir: /etc/nginx/    # x
+    entrypoint: /bin/bash
+    command: -c 'sleep 5 && sleep infinity'    # x
+    restart: unless-stopped     # or "always", "no" (default)
+    
     # -------------
     # | Resources |
     # -------------
@@ -49,6 +52,7 @@ services:
             device_ids: ['all'] # or ['0', '1']
             capabilities: [gpu]
     cpuset: "0,1"  # Restrict the service to CPUs 0 and 1
+    
     # --------------
     # | Networking |
     # --------------
