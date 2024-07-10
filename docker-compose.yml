@@ -33,6 +33,7 @@ services:
     # -------------
     # depends_on:
     #   - postgres-server
+    # init: true  # --init
     working_dir: /etc/nginx/    # x
     entrypoint: /bin/bash
     command: -c 'sleep 5 && sleep infinity'    # x
@@ -59,6 +60,10 @@ services:
           #   device_ids: ['all'] # or ['0', '1']
           #   capabilities: [gpu]
     cpuset: "0,1"  # Restrict the service to CPUs 0 and 1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
     
     # --------------
     # | Networking |
