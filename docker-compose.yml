@@ -72,6 +72,9 @@ services:
       - "10080:80"
     # networks: # has two networks: "external-network-1" and "external-network-2"
     #   - external-network-2
+    # extra_hosts:
+    #   - "kafka:host-gateway"
+    #   - "docker.com:141.193.213.21"
 
 # networks:
 #   default:
